@@ -35,17 +35,6 @@ def clientthread(conn):
 		conn.send(line)
 	f.close()
 	conn.close()
-	
-	#infinite loop so that function do not terminate and thread do not end.
-	#while True:         
-		#Receiving from client
-		#data = conn.recv(1024)
-		#reply = '' + data
-		#if not data: 
-		#    break
-		#conn.sendall(reply)
-    	#came out of loop
-#now keep talking with the client
 
 while 1:
     #wait to accept a connection - blocking call

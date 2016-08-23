@@ -5,7 +5,7 @@ import socket
 import sys
 import time
 from thread import *
- 
+
 HOST = ''   # Symbolic name meaning all available interfaces
 PORT = 31337 # Arbitrary non-privileged port
  

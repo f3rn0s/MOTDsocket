@@ -1,7 +1,9 @@
 # MOTDsocket
-Python based MOTD socket server
+Python based socket server
 
-Uses file motd.txt to relay message to user.
+Iterates through a motd.txt file to send the information to the user, easily accessible through netcat or curl.
+
+Uses file motd.txt to relay message to usser.
 
 Uses threading for multiple users.
 

@@ -5,11 +5,16 @@ import socket
 import sys
 import time
 from thread import *
+from urllib2 import urlopen
 
 HOST = ''   # Symbolic name meaning all available interfaces
 PORT = 31337 # Arbitrary non-privileged port
- 
+my_ip = urlopen('http://ip.42.pl/raw').read()
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ss = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+ss.connect(('google.com', 0))
+
 print('Socket created')
  
 #Bind socket to local host and port
@@ -24,6 +29,8 @@ print('Socket bind complete')
 #Start listening on socket
 s.listen(10)
 print('Socket now listening on port: ' + str(PORT))
+print('Public IP Address: ' + str(my_ip))
+print('Private IP Address: ' + str(ss.getsockname()[0]))
 
 #Function for handling connections. This will be used to create threads
 def clientthread(conn):

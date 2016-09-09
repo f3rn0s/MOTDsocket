@@ -48,6 +48,7 @@ print('Private IP Address: ' + str(ss.getsockname()[0]))
 
 def clearscreen(conn):
 	conn.send('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	conn.send('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 
 #Function for handling connections. This will be used to create threads
 def clientthread(conn):

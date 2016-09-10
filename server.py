@@ -137,6 +137,14 @@ def clientthread(conn):
                         conn.close()
                         print('User ' + user + ':' + port + ' disconnected')
                         break
+                elif data.lower() == "client\n" or data.lower() == "/client\n":
+                	try:
+                		f = open("client.py", 'r')
+                		for line in f:
+                			conn.send(line)
+                		f.close
+                	except:
+                		conn.send("Server is missing a client")
 		#Solution for opening files
 		else:
 			try:

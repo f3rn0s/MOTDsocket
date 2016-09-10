@@ -67,6 +67,7 @@ print('Private IP Address: ' + str(ss.getsockname()[0]))
 #Some useful functions
 def clearscreen(conn):
 	conn.send('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	conn.send('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 
 def ignore():
 	ignore = 'ignore'

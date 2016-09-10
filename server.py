@@ -79,8 +79,8 @@ def clientthread(conn):
 	port = str(addr[1])
 
 	#Welcomes user to the server
-	conn.send('Welcome to the server, type /motd to get started\n')
-        conn.send('Type quit to leave the server at any time\n')
+	conn.send('#Welcome to the server, type /motd to get started\n')
+        conn.send('#Type quit to leave the server at any time\n')
 	
 	#Places user in a loop until disconnect
 	while True:

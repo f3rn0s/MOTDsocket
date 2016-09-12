@@ -17,6 +17,9 @@ while 1:
 			break
 		else:
 			print("Enter a valid port please (1-65535)")
+	except KeyboardInterrupt:
+		print('\n')
+		quit()
 	except:
 		print("Enter a valid port please (1-65535)")
 
@@ -155,11 +158,19 @@ def clientthread(conn):
 			except:
 				ignore()
 
-while 1: 
-	#wait to accept a connection - blocking call
-	conn, addr = s.accept()
-	print('User ' + addr[0] + ':' + str(addr[1]) + ' connected')
-	with open(LOGFILE, "a") as myfile:
-		myfile.write(str(addr[0]) + '\n')     
-	start_new_thread(clientthread ,(conn,))
+try:
+	while 1: 
+		#wait to accept a connection - blocking call
+		conn, addr = s.accept()
+		print('User ' + addr[0] + ':' + str(addr[1]) + ' connected')
+		with open(LOGFILE, "a") as myfile:
+			myfile.write(str(addr[0]) + '\n')     
+		start_new_thread(clientthread ,(conn,))
+
+except KeyboardInterrupt:
+	print('\nLog written to ' + str(LOGFILE))
+	print('Have a nice day')
+except:
+	ignore()
+
 s.close()

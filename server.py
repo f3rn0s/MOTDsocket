@@ -13,7 +13,7 @@ HOST = ''   # Symbolic name meaning all available interfaces
 while 1:
 	try:
 		PORT = int(raw_input("Port: ")) # Arbitrary non-privileged port
-		if PORT <= 65535:	
+		if PORT <= 65535:
 			break
 		else:
 			print("Enter a valid port please (1-65535)")
@@ -45,20 +45,19 @@ try:
 	ss.connect(('google.com', 0))
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 except:
-	print("No interent connection")	
-	exit()
+	sys.exit("No internet connection, quitting")
 
 print('Socket created')
- 
+
 #Bind socket to local host and port
 try:
     s.bind((HOST, PORT))
 except socket.error as msg:
     print('Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1])
     sys.exit()
-     
+
 print('Socket bind complete')
- 
+
 #Start listening on socket
 s.listen(10)
 
@@ -77,24 +76,24 @@ def ignore():
 
 #Function for handling connections. This will be used to create threads
 def clientthread(conn):
-	
+
 	#stores relevant information about connection
 	user = addr[0]
 	port = str(addr[1])
 
 	#Welcomes user to the server
 	conn.send('#Welcome to the server, type /motd to get started\n')
-        conn.send('#Type quit to leave the server at any time\n')
-	
+    	conn.send('#Type quit to leave the server at any time\n')
+
 	#Places user in a loop until disconnect
 	while True:
 		try:
 			data = str(conn.recv(1024))
 		except:
 			conn.send('Input to large')
-		
+
 		#User Commands
-		
+
 		if data.lower() == '/clear\n':
 			clearscreen(conn)
 		elif data.lower() == '/motd\n':
@@ -133,7 +132,7 @@ def clientthread(conn):
 			else:
 				clearscreen(conn)
 				conn.send('Incorrect\n')
-				with open(LOGFILE, "a") as myfile: 
+				with open(LOGFILE, "a") as myfile:
 					myfile.write('Failed login attempt by: ' + user + ':' + port + '\n')
 				print('Failed login attempt by: ' + user + ':' + port)
                 elif data.lower() == "quit\n" or data.lower() == "/quit\n":
@@ -159,12 +158,12 @@ def clientthread(conn):
 				ignore()
 
 try:
-	while 1: 
+	while 1:
 		#wait to accept a connection - blocking call
 		conn, addr = s.accept()
 		print('User ' + addr[0] + ':' + str(addr[1]) + ' connected')
 		with open(LOGFILE, "a") as myfile:
-			myfile.write(str(addr[0]) + '\n')     
+			myfile.write(str(addr[0]) + '\n')
 		start_new_thread(clientthread ,(conn,))
 
 except KeyboardInterrupt:

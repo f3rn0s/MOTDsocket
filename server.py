@@ -61,6 +61,8 @@ print('Socket bind complete')
 #Start listening on socket
 s.listen(10)
 
+os.system('clear')
+
 #Gives information about serveri
 print('Socket now listening on port: ' + str(PORT))
 print('Public IP Address: ' + str(my_ip))

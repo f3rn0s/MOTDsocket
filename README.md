@@ -44,5 +44,5 @@ I am not the best at writing code, so if this code is used to damage your pc in 
 
 * **Tealkine** - *Project Dev.* - [Tealkine](https://github.com/Tealkine)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/tealkine/MOTDsocket/contributors) who participated in this project.
 

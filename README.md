@@ -35,11 +35,6 @@ Connecting to server
 nc IPADDRESS PORT
 ```
 
-## Disclaimer
-
-I am not the best at writing code, so if this code is used to damage your pc in anyway, I leave it to you to fix the problem. I can try to assist, but ultimately responsibility falls to you
-
-
 ## Authors
 
 * **Tealkine** - *Project Dev.* - [Tealkine](https://github.com/Tealkine)
